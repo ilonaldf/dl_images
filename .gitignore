@@ -2,6 +2,7 @@
 */data/
 .venv
 */submissions
+*/submissions/test_for_students/**
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
