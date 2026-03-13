@@ -118,6 +118,33 @@ def plot_curves(results: dict, model_name: str) -> plt.Figure:
     # AUC
     # axes[2]: plot train_aucs and val_aucs
 
+
+    # Loss 
+    axes[0].plot(epochs_range, results["train_losses"], label="Train")
+    axes[0].plot(epochs_range, results["val_losses"], label="Validation")
+    axes[0].set_title("Loss")
+    axes[0].set_xlabel("Epoch")
+    axes[0].set_ylabel("Loss")
+    axes[0].legend()
+    axes[0].grid(True)
+
+    # Accuracy
+    axes[1].plot(epochs_range, results["train_accs"], label="Train")
+    axes[1].plot(epochs_range, results["val_accs"], label="Validation")
+    axes[1].set_title("Accuracy")
+    axes[1].set_xlabel("Epoch")
+    axes[1].set_ylabel("Accuracy")
+    axes[1].legend()
+    axes[1].grid(True)
+
+    # AUC
+    axes[2].plot(epochs_range, results["train_aucs"], label="Train")
+    axes[2].plot(epochs_range, results["val_aucs"], label="Validation")
+    axes[2].set_title("ROC-AUC")
+    axes[2].set_xlabel("Epoch")
+    axes[2].set_ylabel("AUC")
+    axes[2].legend()
+    axes[2].grid(True)
     fig.suptitle(f"{model_name} — Training curves", fontsize=14, fontweight="bold")
     fig.tight_layout()
     return fig
